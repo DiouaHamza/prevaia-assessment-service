@@ -1,0 +1,16 @@
+server:
+  port: 8091
+
+spring:
+  application:
+    name: service-template
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+logging:
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId}] %-5level %logger{36} - %msg%n"

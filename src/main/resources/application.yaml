@@ -1,0 +1,42 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+    include-message: always
+
+spring:
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: emaia-catch-all
+              uri: http://localhost:8090
+              predicates:
+                - Path=/**
+              filters:
+                - PrefixPath=/v1
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+            allowCredentials: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,gateway
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web: DEBUG
+    root: INFO

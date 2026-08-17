@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-08-17T01:54:42" hostname="KHADIJA-OURRAIS" time="0.357">
+  <properties/>
+  <testcase name="onProjectEvent_newProject_createsProjection()" classname="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" time="0.321"/>
+  <testcase name="onSupplierEvent_staleEvent_isIgnored()" classname="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" time="0.007"/>
+  <testcase name="onSupplierEvent_newSupplier_createsProjection()" classname="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" time="0.007"/>
+  <testcase name="onProjectEvent_staleEvent_isIgnored()" classname="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" time="0.005"/>
+  <testcase name="onSupplierEvent_newerEvent_updatesExistingProjection()" classname="msa.emaia.partnerProjection.PartnerProjectionEventConsumerTest" time="0.009"/>
+  <system-out><![CDATA[02:54:43.163 [Test worker] INFO msa.emaia.partnerProjection.PartnerProjectionEventConsumer -- [PartnerProjectionEventConsumer] Applied PROJECT_CREATED to project_projection proj-1
+02:54:43.178 [Test worker] INFO msa.emaia.partnerProjection.PartnerProjectionEventConsumer -- [PartnerProjectionEventConsumer] Ignoring stale/replayed event evt-1 for supplier sup-1
+02:54:43.187 [Test worker] INFO msa.emaia.partnerProjection.PartnerProjectionEventConsumer -- [PartnerProjectionEventConsumer] Applied SUPPLIER_CREATED to supplier_projection sup-1
+02:54:43.195 [Test worker] INFO msa.emaia.partnerProjection.PartnerProjectionEventConsumer -- [PartnerProjectionEventConsumer] Ignoring stale/replayed event evt-2 for project proj-1
+02:54:43.202 [Test worker] INFO msa.emaia.partnerProjection.PartnerProjectionEventConsumer -- [PartnerProjectionEventConsumer] Applied SUPPLIER_STATUS_CHANGED to supplier_projection sup-1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

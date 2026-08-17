@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="msa.emaia.common.AI.AIApiServiceTest" tests="2" skipped="0" failures="2" errors="0" timestamp="2026-08-17T01:54:42" hostname="KHADIJA-OURRAIS" time="0.738">
+  <properties/>
+  <testcase name="testCallGenerateResponseApi_withNullAssessmentId()" classname="msa.emaia.common.AI.AIApiServiceTest" time="0.719">
+    <failure message="org.mockito.exceptions.misusing.InjectMocksException: &#10;Cannot instantiate @InjectMocks field named 'aiApiService' of type 'class msa.emaia.common.AI.AIApiService'.&#10;You haven't provided the instance at field declaration so I tried to construct the instance.&#10;However the constructor or the initialization block threw an exception : Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null&#10;" type="org.mockito.exceptions.misusing.InjectMocksException">org.mockito.exceptions.misusing.InjectMocksException: 
+Cannot instantiate @InjectMocks field named 'aiApiService' of type 'class msa.emaia.common.AI.AIApiService'.
+You haven't provided the instance at field declaration so I tried to construct the instance.
+However the constructor or the initialization block threw an exception : Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null
+
+	at app//msa.emaia.common.AI.AIApiServiceTest.setup(AIApiServiceTest.java:36)
+	at java.base@21.0.6/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.6/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.6/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null
+	at msa.emaia.common.AI.AIApiService.&lt;init&gt;(AIApiService.java:32)
+	at java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:733)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor$Dispatcher$ByteBuddy$zkjubgBG.invokeWithArguments(Unknown Source)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.lambda$newInstance$0(InstrumentationMemberAccessor.java:199)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.newInstance(InstrumentationMemberAccessor.java:188)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.newInstance(InstrumentationMemberAccessor.java:161)
+	at org.mockito.internal.util.reflection.ModuleMemberAccessor.newInstance(ModuleMemberAccessor.java:42)
+	at org.mockito.internal.util.reflection.FieldInitializer$ParameterizedConstructorInstantiator.instantiate(FieldInitializer.java:291)
+	at org.mockito.internal.util.reflection.FieldInitializer.acquireFieldInstance(FieldInitializer.java:146)
+	at org.mockito.internal.util.reflection.FieldInitializer.initialize(FieldInitializer.java:91)
+	at org.mockito.internal.configuration.injection.ConstructorInjection.processInjection(ConstructorInjection.java:48)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.process(MockInjectionStrategy.java:68)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.relayProcessToNextStrategy(MockInjectionStrategy.java:91)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.process(MockInjectionStrategy.java:71)
+	at org.mockito.internal.configuration.injection.MockInjection$OngoingMockInjection.apply(MockInjection.java:88)
+	at org.mockito.internal.configuration.DefaultInjectionEngine.injectMocksOnFields(DefaultInjectionEngine.java:26)
+	at org.mockito.internal.configuration.InjectingAnnotationEngine.injectCloseableMocks(InjectingAnnotationEngine.java:107)
+	at org.mockito.internal.configuration.InjectingAnnotationEngine.process(InjectingAnnotationEngine.java:48)
+	at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+	... 4 more
+</failure>
+  </testcase>
+  <testcase name="testCallGenerateResponseApi_success()" classname="msa.emaia.common.AI.AIApiServiceTest" time="0.014">
+    <failure message="org.mockito.exceptions.misusing.InjectMocksException: &#10;Cannot instantiate @InjectMocks field named 'aiApiService' of type 'class msa.emaia.common.AI.AIApiService'.&#10;You haven't provided the instance at field declaration so I tried to construct the instance.&#10;However the constructor or the initialization block threw an exception : Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null&#10;" type="org.mockito.exceptions.misusing.InjectMocksException">org.mockito.exceptions.misusing.InjectMocksException: 
+Cannot instantiate @InjectMocks field named 'aiApiService' of type 'class msa.emaia.common.AI.AIApiService'.
+You haven't provided the instance at field declaration so I tried to construct the instance.
+However the constructor or the initialization block threw an exception : Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null
+
+	at app//msa.emaia.common.AI.AIApiServiceTest.setup(AIApiServiceTest.java:36)
+	at java.base@21.0.6/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base@21.0.6/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base@21.0.6/java.util.ArrayList.forEach(ArrayList.java:1596)
+Caused by: java.lang.NullPointerException: Cannot invoke &quot;io.github.resilience4j.circuitbreaker.CircuitBreakerRegistry.circuitBreaker(String)&quot; because &quot;circuitBreakerRegistry&quot; is null
+	at msa.emaia.common.AI.AIApiService.&lt;init&gt;(AIApiService.java:32)
+	at java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:733)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor$Dispatcher$ByteBuddy$zkjubgBG.invokeWithArguments(Unknown Source)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.lambda$newInstance$0(InstrumentationMemberAccessor.java:199)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.newInstance(InstrumentationMemberAccessor.java:188)
+	at org.mockito.internal.util.reflection.InstrumentationMemberAccessor.newInstance(InstrumentationMemberAccessor.java:161)
+	at org.mockito.internal.util.reflection.ModuleMemberAccessor.newInstance(ModuleMemberAccessor.java:42)
+	at org.mockito.internal.util.reflection.FieldInitializer$ParameterizedConstructorInstantiator.instantiate(FieldInitializer.java:291)
+	at org.mockito.internal.util.reflection.FieldInitializer.acquireFieldInstance(FieldInitializer.java:146)
+	at org.mockito.internal.util.reflection.FieldInitializer.initialize(FieldInitializer.java:91)
+	at org.mockito.internal.configuration.injection.ConstructorInjection.processInjection(ConstructorInjection.java:48)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.process(MockInjectionStrategy.java:68)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.relayProcessToNextStrategy(MockInjectionStrategy.java:91)
+	at org.mockito.internal.configuration.injection.MockInjectionStrategy.process(MockInjectionStrategy.java:71)
+	at org.mockito.internal.configuration.injection.MockInjection$OngoingMockInjection.apply(MockInjection.java:88)
+	at org.mockito.internal.configuration.DefaultInjectionEngine.injectMocksOnFields(DefaultInjectionEngine.java:26)
+	at org.mockito.internal.configuration.InjectingAnnotationEngine.injectCloseableMocks(InjectingAnnotationEngine.java:107)
+	at org.mockito.internal.configuration.InjectingAnnotationEngine.process(InjectingAnnotationEngine.java:48)
+	at org.mockito.MockitoAnnotations.openMocks(MockitoAnnotations.java:81)
+	... 4 more
+</failure>
+  </testcase>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

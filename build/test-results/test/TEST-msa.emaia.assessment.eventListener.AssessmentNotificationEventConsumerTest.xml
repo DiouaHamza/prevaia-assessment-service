@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-08-17T01:54:37" hostname="KHADIJA-OURRAIS" time="4.208">
+  <properties/>
+  <testcase name="onSupplierEmailRequested_nominal_sendsHtmlEmailAndMarksAssessment()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="4.02"/>
+  <testcase name="onAdminNotificationRequested_notificationFails_propagatesForDlq()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="0.049"/>
+  <testcase name="onSupplierEmailRequested_alreadySent_isNoOp()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="0.061"/>
+  <testcase name="onSupplierEmailRequested_htmlAndFallbackBothFail_propagatesForDlq()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="0.018"/>
+  <testcase name="onAdminNotificationRequested_alreadyNotified_isNoOp()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="0.012"/>
+  <testcase name="onAdminNotificationRequested_nominal_sendsNotificationAndMarksAssessment()" classname="msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumerTest" time="0.013"/>
+  <system-out><![CDATA[02:54:41.652 [Test worker] INFO msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumer -- [AssessmentNotificationEventConsumer] Email sent to supplier for assessment assess-1
+02:54:41.863 [Test worker] INFO msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumer -- [AssessmentNotificationEventConsumer] Assessment assess-1 already emailed to supplier at Mon Aug 17 02:54:41 WEST 2026, ignoring replayed event
+02:54:41.927 [Test worker] WARN msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumer -- [AssessmentNotificationEventConsumer] HTML email failed for assessment assess-1, falling back to plain text: SMTP down
+02:54:41.947 [Test worker] INFO msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumer -- [AssessmentNotificationEventConsumer] Assessment assess-1 already notified to admin at Mon Aug 17 02:54:41 WEST 2026, ignoring replayed event
+02:54:41.961 [Test worker] INFO msa.emaia.assessment.eventListener.AssessmentNotificationEventConsumer -- [AssessmentNotificationEventConsumer] Admin notified for assessment assess-1 (supplier sup-1)
+]]></system-out>
+  <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (C:\Users\hp\.gradle\caches\modules-2\files-2.1\net.bytebuddy\byte-buddy-agent\1.14.13\979ce25f7d3096a2e82214ba7dc972a05ce7a171\byte-buddy-agent-1.14.13.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+</testsuite>

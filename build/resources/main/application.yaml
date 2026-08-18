@@ -1,16 +1,135 @@
 server:
-  port: 8091
+  port: 8085
+  error:
+    include-stacktrace: always
+    include-message: always
+
+api:
+  base-path: /v1
 
 spring:
   application:
-    name: service-template
+    name: assessment-service
+  main:
+    lazy-initialization: true
+  datasource:
+    url: jdbc:postgresql://localhost:5437/assessment_local
+    username: assessment_user
+    password: assessment_pass_local
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 20
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+  mail:
+    host: smtp.hostinger.com
+    port: 465
+    username: support@emaia.ai
+    password: "JpCYEdejhC1*"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    listener:
+      simple:
+        default-requeue-rejected: false
+        retry:
+          enabled: true
+          max-attempts: 3
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health,info,metrics,circuitbreakers,circuitbreakerevents
+  endpoint:
+    circuitbreakers:
+      enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
 
 logging:
+  level:
+    org.springframework.web: INFO
+    org.hibernate.SQL: INFO
+    root: INFO
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} [%X{traceId}] %-5level %logger{36} - %msg%n"
+    console: "%-5level %d{yyyy-MM-dd HH:mm:ss} [%X{traceId}] %-20thread %-5line %-100logger -- %msg%n"
+
+emaia:
+  security:
+    jwt:
+      secret-key: '9D0EB6B1C2E1FAD0F53A248F6C3B5E4E2F6D8G3H1I0J7K4L1M9N2O3P5Q0R7S9T1U4V2W6X0Y3Z'
+      expiration-time: 1440000
+      rest-password-expiration-time: 14400
+
+feign:
+  iam-service:
+    url: http://localhost:8081
+  catalog-service:
+    url: http://localhost:8082
+  circuitbreaker:
+    enabled: true
+
+partner:
+  service:
+    url: http://localhost:8084/v1
+
+app:
+  email:
+    from: support@emaia.ai
+  portal:
+    url: https://prevaia-v2-98153220814.us-central1.run.app
+
+ai:
+  base:
+    url: https://fastapi-app-657186721955.us-central1.run.app
+  generate_response:
+    url: process_assessment
+  generate_ai_summary:
+    url: ai_summary
+
+ai_summary:
+  base:
+    url: https://fastapi-app-657186721955.us-central1.run.app
+
+chat:
+  base:
+    url: https://fastapi-app-657186721955.us-central1.run.app
+  get_message:
+    url: prevaia_chat
+
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        sliding-window-size: 10
+        minimum-number-of-calls: 5
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 30s
+        permitted-number-of-calls-in-half-open-state: 3
+        automatic-transition-from-open-to-half-open-enabled: true
+  timelimiter:
+    configs:
+      default:
+        timeout-duration: 5s
